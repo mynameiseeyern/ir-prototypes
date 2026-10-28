@@ -15,7 +15,7 @@ interface Route { page: PageId; tab: UserTab }
 const readRoute = (): Route => {
   const path = window.location.pathname.replace(/\/+$/, "") || "/"
   if (clarionPaths.includes(path)) window.location.replace(`${CLARION_URL}${path}${window.location.search}`)
-  return { page: pageFromPath(path) ?? "home", tab: readUserTab(window.location.search) }
+  return { page: pageFromPath(path, window.location.search) ?? "home", tab: readUserTab(window.location.search) }
 }
 
 /**
